@@ -2,8 +2,8 @@ import { META } from './meta';
 import { createMeta } from './createmeta';
 export const getMeta = function (target, keys) {
 
-    validateTarget();
-    validateAttr();
+   //TODO: validate input parameters
+    
     let meta = createMeta(target);
     if (keys[0] === META) return meta;
     keys = keys.split('.');
@@ -11,13 +11,4 @@ export const getMeta = function (target, keys) {
         if (!pre[cur]) throw new Error('invalid meta attribute');
         return pre[cur];
     }, meta);
-
-}
-
-function validateTarget(target) {
-    if (!target) throw new Error('Target does not exist');
-}
-
-function validateAttr(attr) {
-    if (attr) throw new Error('Attr does not exist');
 }
