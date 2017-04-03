@@ -1,8 +1,9 @@
 import { createMeta } from './createmeta';
+import { validateArgs } from './helpervalidations';
+
 export const setMeta = function (target, keys, value) {
 
-    //TODO: validate input parameters
-
+    validateArgs(null, target, key, value);
     let meta = createMeta(target);
     keys = keys.split('.');
     keys.reduce((pre, cur, index) => {
