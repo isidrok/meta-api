@@ -7,14 +7,11 @@ exports.setMeta = undefined;
 
 var _createmeta = require('./createmeta');
 
-var setMeta = exports.setMeta = function setMeta(target, keys, value) {
-
-    //TODO: validate input parameters
-
+var setMeta = exports.setMeta = function setMeta(target, keys, value, inArray) {
     var meta = (0, _createmeta.createMeta)(target);
     keys = keys.split('.');
     keys.reduce(function (pre, cur, index) {
-        index !== keys.length - 1 ? pre[cur] = pre[cur] || {} : pre[cur] = value;
+        if (inArray) index !== keys.length - 1 ? pre[cur] = pre[cur] || {} : pre[cur] = pre[cur] ? pre[cur].push(value) : [value];else index !== keys.length - 1 ? pre[cur] = pre[cur] || {} : pre[cur] = value;
         return pre[cur];
     }, meta);
 };

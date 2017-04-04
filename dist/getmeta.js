@@ -11,8 +11,6 @@ var _createmeta = require('./createmeta');
 
 var getMeta = exports.getMeta = function getMeta(target, keys) {
 
-    //TODO: validate input parameters
-
     var meta = (0, _createmeta.createMeta)(target);
     if (keys[0] === _meta.META) return meta;
     keys = keys.split('.');
