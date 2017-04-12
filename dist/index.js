@@ -28,6 +28,18 @@ Object.keys(_setmeta).forEach(function (key) {
   });
 });
 
+var _getmetaentities = require('./getmetaentities');
+
+Object.keys(_getmetaentities).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _getmetaentities[key];
+    }
+  });
+});
+
 var _meta = require('./meta');
 
 Object.keys(_meta).forEach(function (key) {
